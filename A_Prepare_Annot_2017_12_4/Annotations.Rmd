@@ -1,0 +1,176 @@
+---
+title: "Annotations"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Generate m6A annotations for count.
+
+- RMBase2.
+- TSS from the hg19 and mm10 txdb.
+
+Because I don't have RMBase2 access anymore, I will use RMBase2 on server
+
+```{bash,eval = FALSE}
+scp zhen@10.7.6.53:/home/zhen/m6A_targets_bams/Gr_hg19_normal_50.rds /Users/zhenwei/Documents/GitHub/TREW-cons/A_Prepare_Annot_2017_12_4
+
+scp zhen@10.7.6.53:/home/zhen/m6A_targets_bams/Gr_mm10_normal_50.rds /Users/zhenwei/Documents/GitHub/TREW-cons/A_Prepare_Annot_2017_12_4
+```
+
+- I take the following procedure to make the data clean:
+
+1. The RMbase2 is amplified with meCLIP datasets, and only sites mapped on RRACH are kept for meCLIP datasets.
+
+2. The TSS m6Am annotation is extracted from the TSS A sites from refSeq annotation, if the sites are included in amplified RMbase2, then they are removed from them, and defined only in TSS m6Am instead.
+
+- For conservation analysis:
+
+3. Amplified RMbase2 m6A sites of mm10 are lifted over to hg19, the lifted methylation sites mapped to multiple hg19 methylation sites are removed.
+
+4. Similarly, TSS m6Am sites are lifted from mm10 to hg19, the multiple mappings are removed.
+
+
+###RMbase2 m6A granges
+
+```{r}
+library(dplyr)
+library(BSgenome)
+library(BSgenome.Hsapiens.UCSC.hg19)
+library(BSgenome.Mmusculus.UCSC.mm10)
+
+m6A_RRACH_sub <- function(gr_1nt,bsgnm,gnm){
+idx_m6A <- gr_1nt %>% `+`(2) %>% Views(bsgnm,.) %>% DNAStringSet %>% vcountPattern("RRACH",.,fixed = F) %>% `>` (0)
+gr_1nt$ID = gsub("m6A_site",paste0("rmbase2_",gnm),gr_1nt$ID)
+gr_1nt[idx_m6A] %>% return
+}
+
+amp_RMbase2_hg19 <- readRDS("Gr_hg19_normal_50.rds") %>% `-`(50) %>% m6A_RRACH_sub(.,Hsapiens,"hg19")
+amp_RMbase2_mm10 <- readRDS("Gr_mm10_normal_50.rds") %>% `-`(50) %>% m6A_RRACH_sub(.,Mmusculus,"mm10")
+
+length(amp_RMbase2_hg19) #480715
+length(amp_RMbase2_mm10) #492754
+```
+
+###TSS m6Am extraction
+```{r,eval=FALSE}
+library(GenomicFeatures)
+
+txdb_hg19 <- TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene
+txdb_mm10 <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
+
+TSS_A <- function(txdb,bsgnm) {
+TSS_txdb <- transcripts(txdb) %>% resize(.,1,fix = "start")
+A_idx <- Views(bsgnm,TSS_txdb) %>% DNAStringSet %>% vcountPattern("A",.) %>% `==` (1)
+TSS_txdb[A_idx] %>% return
+}
+
+txdb_hg19_A <- TSS_A(txdb_hg19,Hsapiens)
+txdb_mm10_A <- TSS_A(txdb_mm10,Mmusculus)
+
+#Removing TSS from amplified RMBase2
+amp_RMbase2_hg19 <- amp_RMbase2_hg19[ !amp_RMbase2_hg19 %over% txdb_hg19_A ]
+amp_RMbase2_mm10 <- amp_RMbase2_mm10[ !amp_RMbase2_mm10 %over% txdb_mm10_A ]
+
+#Save all the annotations as the references for count
+txdb_hg19_A$ID = paste0("hg19_tssa_",1:length(txdb_hg19_A))
+txdb_mm10_A$ID = paste0("mm10_tssa_",1:length(txdb_mm10_A))
+  
+txdb_hg19_A %>% resize(.,100,fix = "start")  %>% saveRDS(.,"Gr_hg19_tssA.rds")
+txdb_mm10_A %>% resize(.,100,fix = "start")  %>% saveRDS(.,"Gr_mm10_tssA.rds")
+
+amp_RMbase2_mm10 %>% `+`(50) %>% saveRDS(.,"Gr_mm10_aRMbase2.rds")
+amp_RMbase2_hg19 %>% `+`(50)  %>% saveRDS(.,"Gr_hg19_aRMbase2.rds")
+```
+
+###Some facts on the TSS annotation
+
+```{r,eval = F}
+library(Guitar)
+
+Gtcoord_hg19 <- readRDS("/Users/zhenwei/Datasets/Gtcoords/Gtcoord_hg19.rds")
+Gtcoord_mm10 <- readRDS("/Users/zhenwei/Datasets/Gtcoords/Gtcoord_mm10.rds")
+
+TSS_non_A <- function(txdb,bsgnm){ 
+TSS_txdb <- transcripts(txdb) %>% resize(.,1,fix = "start")
+A_idx <- Views(bsgnm,TSS_txdb) %>% DNAStringSet %>% vcountPattern("A",.) %>% `==` (1)
+TSS_txdb[!A_idx] %>% return
+}
+
+GuitarPlot(list(A = txdb_hg19_A,
+                not_A = TSS_non_A(txdb_hg19,Hsapiens)),
+           Gtcoord_hg19,
+saveToPDFprefix = "human_TSS",
+rescaleComponent = F)
+
+GuitarPlot(list(A = txdb_mm10_A,
+                not_A = TSS_non_A(txdb_mm10,Mmusculus)),
+           Gtcoord_mm10,
+          saveToPDFprefix = "mouse_TSS",
+          rescaleComponent = F)
+```
+
+- A very wierd fact is that: if it is A, the TSS is more likely to be conserved and coincides with the start codon.
+- This differentiation is perhaps a new feature to add in the logistic model.
+
+## Define liftover and homologous TSS mapping index.
+
+mm10 TSS is converted to hg19 using gene homologous information, and only those genes still started with A are kept in the final annotation.
+
+A fact is that the human and mouse TSSs are simply not one to one corresponded/conserved!
+
+I propose to simply dissect the eCLIP binding peaks, and determine if the binded peaks are confounded by the TSS.
+
+But the features in the logistic regression should add additional one: TSS_A overlapped start codon.
+
+##LiftOver
+
+3. Amplified RMbase2 m6A sites of mm10 are lifted over to hg19, the lifted methylation sites mapped to multiple hg19 methylation sites are removed.
+
+4. Similarly, TSS m6Am sites are lifted from mm10 to hg19, the multiple mappings are removed.
+
+
+```{r,eval=FALSE}
+library(AnnotationHub)
+ahub <- AnnotationHub()
+ahub.chain <- subset(ahub, rdataclass == "ChainFile")
+query(ahub.chain, c("mm10", "hg19"))
+chain <- ahub.chain[ahub.chain$title == "mm10ToHg19.over.chain.gz"]
+chain <- chain[[1]]
+saveRDS(chain,"/Users/zhenwei/Datasets/ChainFiles/chain-mm10ToHg19.rds")
+
+chain <- readRDS("/Users/zhenwei/Datasets/ChainFiles/chain-mm10ToHg19.rds")
+
+unique_Mapping_rule <- function(gr_1,gr_2,chain) {
+
+gr_1to2 <- unlist(liftOver(gr_1, chain))
+
+fol <- findOverlaps(gr_1to2, gr_2)
+
+Mapping_rule_1to2 <- data.frame(
+           gr1_ID = gr_1to2$ID[queryHits( fol )],
+           gr2_ID = gr_2$ID[subjectHits( fol )]
+           )
+
+duplicated_gr2ID <- Mapping_rule_1to2$gr2_ID[duplicated(Mapping_rule_1to2$gr2_ID)] 
+
+Mapping_rule_1to2[!Mapping_rule_1to2$gr2_ID %in% duplicated_gr2ID ,]
+}
+
+Map_RMbase2 <- unique_Mapping_rule(amp_RMbase2_mm10,amp_RMbase2_hg19,chain)
+
+saveRDS(Map_RMbase2,"Mapping_rule_aRMBase2.rds")
+
+Map_tssa <- unique_Mapping_rule(txdb_mm10_A,txdb_hg19_A,chain)
+
+saveRDS(Map_tssa,"Mapping_rule_tssa.rds")
+```
+
+#Finished
+
+```{r}
+sessionInfo()
+```
+
