@@ -1,0 +1,161 @@
+,SRR_RUN,IP_input,Experiment,Perturbation,Interest,Lib,SRA_Study,Publication,Perturbation_detail
+72,SRR1048180,input,mouse-3T3L1,C,Fto,Single,SRP033778,FTO-dependent demethylation of N6-methyladenosine regulates mRNA splicing and is required for adipogenesis.,control batch13
+73,SRR1048181,IP,mouse-3T3L1,C,Fto,Single,SRP033778,FTO-dependent demethylation of N6-methyladenosine regulates mRNA splicing and is required for adipogenesis.,control batch13
+74,SRR1048182,input,mouse-3T3L1,Fto-,Fto,Single,SRP033778,FTO-dependent demethylation of N6-methyladenosine regulates mRNA splicing and is required for adipogenesis.,kd FTO batch13
+75,SRR1048183,IP,mouse-3T3L1,Fto-,Fto,Single,SRP033778,FTO-dependent demethylation of N6-methyladenosine regulates mRNA splicing and is required for adipogenesis.,kd FTO batch13
+117,SRR1182591,IP,human-Hek293T,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si WTAP
+118,SRR1182592,input,human-Hek293T,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si WTAP
+100,SRR1182593,IP,human-Hek293T,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3
+101,SRR1182594,input,human-Hek293T,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3
+125,SRR1182595,IP,human-Hek293T,C,"WTAP,METTL3",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si Control
+126,SRR1182596,input,human-Hek293T,C,"WTAP,METTL3",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si Control
+119,SRR1182603,IP,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP
+120,SRR1182604,input,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP
+121,SRR1182605,IP,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP
+122,SRR1182606,input,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP
+108,SRR1182607,IP,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 1
+109,SRR1182608,input,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 1
+110,SRR1182609,IP,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 3
+111,SRR1182610,input,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 3
+112,SRR1182611,IP,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 1
+113,SRR1182612,input,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 1
+114,SRR1182613,IP,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 3
+115,SRR1182614,input,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 3
+102,SRR1182615,IP,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3
+103,SRR1182616,input,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3
+104,SRR1182617,IP,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3
+105,SRR1182618,input,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3
+127,SRR1182619,IP,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 2
+128,SRR1182620,input,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 2
+129,SRR1182621,IP,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 1
+130,SRR1182622,input,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 1
+131,SRR1182623,IP,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 1
+132,SRR1182624,input,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 1
+123,SRR1182625,IP,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si WTAP
+124,SRR1182626,input,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si WTAP
+1,SRR1182627,IP,human-A549,KIAA1429-,KIAA1429,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si KIAA1429
+2,SRR1182628,input,human-A549,KIAA1429-,KIAA1429,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si KIAA1429
+106,SRR1182629,IP,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3
+107,SRR1182630,input,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3
+116,SRR1182631,IP,human-A549,METTL3&METTL14-,"METTL3,METTL14",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3 and si METTL14
+150,SRR1182657,IP,mouse-MEF,HNRPDL-,HNRPDL,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh HNRNPDL 3
+151,SRR1182658,input,mouse-MEF,HNRPDL-,HNRPDL,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh HNRNPDL 3
+152,SRR1182659,IP,mouse-MEF,HNRPDL-,HNRPDL,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh HNRNPDL 4
+153,SRR1182660,input,mouse-MEF,HNRPDL-,HNRPDL,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh HNRNPDL 4
+141,SRR1182661,IP,mouse-MEF,WTAP-,WTAP,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP 2
+142,SRR1182662,IP,mouse-MEF,WTAP-,WTAP,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP 2
+143,SRR1182663,IP,mouse-MEF,WTAP-,WTAP,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP 2
+144,SRR1182664,input,mouse-MEF,WTAP-,WTAP,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP 2
+145,SRR1182665,input,mouse-MEF,WTAP-,WTAP,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP 2
+146,SRR1182666,IP,mouse-MEF,WTAP-,WTAP,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP 3
+147,SRR1182667,IP,mouse-MEF,WTAP-,WTAP,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP 3
+148,SRR1182668,input,mouse-MEF,WTAP-,WTAP,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP 3
+149,SRR1182669,input,mouse-MEF,WTAP-,WTAP,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP 3
+133,SRR1182670,IP,mouse-MEF,METTL3-,METTL3,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3 2
+134,SRR1182671,IP,mouse-MEF,METTL3-,METTL3,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3 2
+135,SRR1182672,input,mouse-MEF,METTL3-,METTL3,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3 2
+136,SRR1182673,input,mouse-MEF,METTL3-,METTL3,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3 2
+137,SRR1182674,IP,mouse-MEF,METTL3-,METTL3,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3 3
+138,SRR1182675,IP,mouse-MEF,METTL3-,METTL3,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3 3
+139,SRR1182676,input,mouse-MEF,METTL3-,METTL3,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3 3
+140,SRR1182677,input,mouse-MEF,METTL3-,METTL3,Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3 3
+154,SRR1182678,IP,mouse-MEF,C,"HNRPDL,WTAP,METTL3",Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh RFP
+155,SRR1182679,IP,mouse-MEF,C,"HNRPDL,WTAP,METTL3",Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh RFP
+156,SRR1182680,input,mouse-MEF,C,"HNRPDL,WTAP,METTL3",Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh RFP
+157,SRR1182681,IP,mouse-MEF,C,"HNRPDL,WTAP,METTL3",Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP
+158,SRR1182682,IP,mouse-MEF,C,"HNRPDL,WTAP,METTL3",Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP
+159,SRR1182683,input,mouse-MEF,C,"HNRPDL,WTAP,METTL3",Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP
+160,SRR1182684,input,mouse-MEF,C,"HNRPDL,WTAP,METTL3",Paired,SRP039402,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP
+76,SRR1575981,input,mouse-3T3L1,C,Fto,Single,SRP033778,FTO-dependent demethylation of N6-methyladenosine regulates mRNA splicing and is required for adipogenesis.,control batch14
+77,SRR1575982,IP,mouse-3T3L1,C,Fto,Single,SRP033778,FTO-dependent demethylation of N6-methyladenosine regulates mRNA splicing and is required for adipogenesis.,control batch14
+78,SRR1575983,input,mouse-3T3L1,Fto-,Fto,Single,SRP033778,FTO-dependent demethylation of N6-methyladenosine regulates mRNA splicing and is required for adipogenesis.,kd FTO batch14
+79,SRR1575984,IP,mouse-3T3L1,Fto-,Fto,Single,SRP033778,FTO-dependent demethylation of N6-methyladenosine regulates mRNA splicing and is required for adipogenesis.,kd FTO batch14
+80,SRR1596085,IP,mouse-Esc,C,Mettl3,Single,SRP048596,Stem cells. m6A mRNA methylation facilitates resolution of na_ve pluripotency toward differentiation.,control
+81,SRR1596086,input,mouse-Esc,C,Mettl3,Single,SRP048596,Stem cells. m6A mRNA methylation facilitates resolution of na_ve pluripotency toward differentiation.,control
+82,SRR1596087,IP,mouse-Esc,C,Mettl3,Single,SRP048596,Stem cells. m6A mRNA methylation facilitates resolution of na_ve pluripotency toward differentiation.,control
+83,SRR1596088,input,mouse-Esc,C,Mettl3,Single,SRP048596,Stem cells. m6A mRNA methylation facilitates resolution of na_ve pluripotency toward differentiation.,control
+84,SRR1596089,IP,mouse-Esc,C,Mettl3,Single,SRP048596,Stem cells. m6A mRNA methylation facilitates resolution of na_ve pluripotency toward differentiation.,control
+85,SRR1596090,input,mouse-Esc,C,Mettl3,Single,SRP048596,Stem cells. m6A mRNA methylation facilitates resolution of na_ve pluripotency toward differentiation.,control
+86,SRR1744126,IP,mouse-Esc,Mettl3-,Mettl3,Single,SRP048596,Stem cells. m6A mRNA methylation facilitates resolution of na_ve pluripotency toward differentiation.,ko Mettl3
+87,SRR1744127,input,mouse-Esc,Mettl3-,Mettl3,Single,SRP048596,Stem cells. m6A mRNA methylation facilitates resolution of na_ve pluripotency toward differentiation.,ko Mettl3
+88,SRR2128069,IP,mouse-MEF-n,C,"Fto,Ythdf2",Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,normal
+89,SRR2128070,IP,mouse-MEF-hs,C,"Fto,Ythdf2",Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,normal
+90,SRR2128071,IP,mouse-MEF-n,Fto-,Fto,Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,Fto kd
+91,SRR2128072,IP,mouse-MEF-n,Ythdf2-,Ythdf2,Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,Ythdf2 kd
+92,SRR2128073,IP,mouse-MEF-hs,Fto-,Fto,Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,Fto kd 
+93,SRR2128074,IP,mouse-MEF-hs,Ythdf2-,Ythdf2,Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,Ythdf2 kd
+94,SRR2128075,input,mouse-MEF-n,C,"Fto,Ythdf2",Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,normal
+95,SRR2128076,input,mouse-MEF-hs,C,"Fto,Ythdf2",Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,normal
+96,SRR2128077,input,mouse-MEF-n,Fto-,Fto,Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,Fto kd
+97,SRR2128078,input,mouse-MEF-n,Ythdf2-,Ythdf2,Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,Ythdf2 kd
+98,SRR2128079,input,mouse-MEF-hs,Fto-,Fto,Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,Fto kd
+99,SRR2128080,input,mouse-MEF-hs,Ythdf2-,"Fto,Ythdf2",Single,SRP061617,Dynamic m(6)A mRNA methylation directs translational control of heat shock response.,Ythdf2 kd
+24,SRR3066062,input,human-AML,FTO+,FTO,Single,SRP067910 ,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,FTO Forced Expression
+25,SRR3066063,IP,human-AML,FTO+,FTO,Single,SRP067910 ,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,FTO Forced Expression
+26,SRR3066064,input,human-AML,FTO+,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,FTO Forced Expression
+27,SRR3066065,IP,human-AML,FTO+,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,FTO Forced Expression
+28,SRR3066066,input,human-AML,C,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,Without FTO Forced Expression
+29,SRR3066067,IP,human-AML,C,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,Without FTO Forced Expression
+30,SRR3066068,input,human-AML,C,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,Without FTO Forced Expression
+31,SRR3066069,IP,human-AML,C,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,Without FTO Forced Expression
+3,SRR3973189,IP,human-AML,C,FTO,Single,SRP080113,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,sh RNA NS
+4,SRR3973190,IP,human-AML,FTO-,FTO,Single,SRP080113,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,sh RNA FTO
+32,SRR5248992,input,human-PBT003,C,"METTL3,METTL14",Single,SRP099397,-,control shRNA
+33,SRR5248993,input,human-PBT003,METTL3-,METTL3,Single,SRP099397,-,METTL3 shRNA
+34,SRR5248994,input,human-PBT003,METTL14-,METTL14,Single,SRP099397,-,METTL14 shRNA1
+35,SRR5248995,input,human-PBT003,METTL14-,METTL14,Single,SRP099397,-,METTL14 shRNA2
+36,SRR5248996,IP,human-PBT003,C,"METTL3,METTL14",Single,SRP099397,-,control shRNA
+37,SRR5248997,IP,human-PBT003,METTL3-,METTL3,Single,SRP099397,-,METTL3 shRNA
+38,SRR5248998,IP,human-PBT003,METTL14-,METTL14,Single,SRP099397,-,METTL14 shRNA1
+39,SRR5248999,IP,human-PBT003,METTL14-,METTL14,Single,SRP099397,-,METTL14 shRNA2
+5,SRR5933662_trimmed.fq_rigf,IP,mouse-MEF-N,C,ALKBH5,Single,SRP115436,-,control
+6,SRR5933663_trimmed.fq_rigf,IP,mouse-MEF-S,C,ALKBH5,Single,SRP115436,-,control
+7,SRR5933664_trimmed.fq_rigf,input,mouse-MEF-N,C,ALKBH5,Single,SRP115436,-,control
+8,SRR5933665_trimmed.fq_rigf,input,mouse-MEF-S,C,ALKBH5,Single,SRP115436,-,control
+9,SRR5933666_trimmed.fq_rigf,IP,mouse-MEF-N,C,ALKBH5,Single,SRP115436,-,sh Scramble
+10,SRR5933667_trimmed.fq_rigf,IP,mouse-MEF-S,C,ALKBH5,Single,SRP115436,-,sh Scramble
+12,SRR5933668_trimmed.fq_rigf,IP,mouse-MEF-N,ALKBH5-,ALKBH5,Single,SRP115436,-,sh Alkbh5
+11,SRR5933669_trimmed.fq_rigf,IP,mouse-MEF-S,ALKBH5-,ALKBH5,Single,SRP115436,-,sh Alkbh5
+13,SRR5933672_trimmed.fq_rigf,IP,mouse-liver-N,C,FTO,Single,SRP115436,-,control
+14,SRR5933673_trimmed.fq_rigf,IP,mouse-liver-N,FTO+,FTO,Single,SRP115436,-,FTO Over Expression
+15,SRR5933674_trimmed.fq_rigf,IP,mouse-liver-F,C,FTO,Single,SRP115436,-,control
+16,SRR5933675_trimmed.fq_rigf,IP,mouse-liver-F,FTO+,FTO,Single,SRP115436,-,FTO Over Expression
+17,SRR5933676_trimmed.fq_rigf,input,mouse-liver-N,C,FTO,Single,SRP115436,-,control
+18,SRR5933677_trimmed.fq_rigf,input,mouse-liver-N,FTO+,FTO,Single,SRP115436,-,FTO Over Expression
+19,SRR5933678_trimmed.fq_rigf,input,mouse-liver-F,C,FTO,Single,SRP115436,-,control
+20,SRR5933679_trimmed.fq_rigf,input,mouse-liver-F,FTO+,FTO,Single,SRP115436,-,FTO Over Expression
+21,SRR5933680_trimmed.fq_rigf,IP,mouse-liver-N,C,FTO,Single,SRP115436,-,control
+23,SRR5933681_trimmed.fq_rigf,IP,mouse-liver-N,FTO+,FTO,Single,SRP115436,-,FTO Over Expression
+22,SRR5933682_trimmed.fq_rigf,IP,mouse-liver-F,C,FTO,Single,SRP115436,-,control
+52,SRR847358_2T,input,human-Hela,C,"WTAP,METTL14",Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+53,SRR847359_2T,input,human-Hela,C,"WTAP,METTL14",Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+54,SRR847360_2T,IP,human-Hela,C,"WTAP,METTL14",Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+55,SRR847361_2T,IP,human-Hela,C,"WTAP,METTL14",Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+44,SRR847362,input,human-Hela,METTL14-,METTL14,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+45,SRR847363,input,human-Hela,METTL14-,METTL14,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+46,SRR847364,IP,human-Hela,METTL14-,METTL14,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+47,SRR847365,IP,human-Hela,METTL14-,METTL14,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+48,SRR847366_2T,input,human-Hela,WTAP-,WTAP,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+49,SRR847367_2T,input,human-Hela,WTAP-,WTAP,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+50,SRR847368_2T,IP,human-Hela,WTAP-,WTAP,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+51,SRR847369_2T,IP,human-Hela,WTAP-,WTAP,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+56,SRR847370_2T,input,human-Hela,C,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+57,SRR847371_2T,input,human-Hela,C,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+58,SRR847372_2T,IP,human-Hela,C,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+59,SRR847373_2T,IP,human-Hela,C,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+40,SRR847374_2T,input,human-Hela,METTL3-,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+41,SRR847375_2T,input,human-Hela,METTL3-,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+42,SRR847376_2T,IP,human-Hela,METTL3-,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+43,SRR847377_2T,IP,human-Hela,METTL3-,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+60,SRR866991_2T,IP,mouse-midbrain,Fto-,Fto,Single,SRP023107,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,global Fto knock out
+61,SRR866992_2T,input,mouse-midbrain,Fto-,Fto,Single,SRP023107,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,global Fto knock out
+62,SRR866993_2T,IP,mouse-midbrain,Fto-,Fto,Single,SRP023107,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,global Fto knock out
+63,SRR866994_2T,input,mouse-midbrain,Fto-,Fto,Single,SRP023107,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,global Fto knock out
+64,SRR866995_2T,IP,mouse-midbrain,Fto-,Fto,Single,SRP023107,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,global Fto knock out
+65,SRR866996_2T,input,mouse-midbrain,Fto-,Fto,Single,SRP023107,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,global Fto knock out
+66,SRR866997_2T,IP,mouse-midbrain,C,Fto,Single,SRP023108,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,control
+67,SRR866998_2T,input,mouse-midbrain,C,Fto,Single,SRP023108,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,control
+68,SRR866999_2T,IP,mouse-midbrain,C,Fto,Single,SRP023108,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,control
+69,SRR867000_2T,input,mouse-midbrain,C,Fto,Single,SRP023108,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,control
+70,SRR867001_2T,IP,mouse-midbrain,C,Fto,Single,SRP023108,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,control
+71,SRR867002_2T,input,mouse-midbrain,C,Fto,Single,SRP023108,The fat mass and obesity associated gene (Fto) regulates activity of the dopaminergic midbrain circuitry.,control

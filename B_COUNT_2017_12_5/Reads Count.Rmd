@@ -1,0 +1,79 @@
+---
+title: "Count"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+###Upload the annotation files on to the server
+
+```{bash}
+scp /Users/zhenwei/Documents/GitHub/TREW-cons/A_Prepare_Annot_2017_12_4/*aRMbase2.rds zhen@10.7.6.53:/home/zhen/TREW_cons_bams/
+scp /Users/zhenwei/Documents/GitHub/TREW-cons/A_Prepare_Annot_2017_12_4/*tssA.rds zhen@10.7.6.53:/home/zhen/TREW_cons_bams/
+scp /Users/zhenwei/Documents/GitHub/TREW-cons/B_COUNT_2017_12_5/coldata_TREWcons.csv zhen@10.7.6.53:/home/zhen/TREW_cons_bams/
+```
+
+###Check the bam completeness and count the reads
+
+```{r}
+coldata_TREWcons <- read.csv("coldata_TREWcons.csv")
+SRR_RUN <- coldata_TREWcons$SRR_RUN
+sum(!paste0(SRR_RUN,".bam") %in% grep(".bam", list.files() , value = T)) #0
+
+SRR_RUN_human_SE <- as.character( SRR_RUN )[coldata_TREWcons$Lib == "Single" & grepl("human",coldata_TREWcons$Experiment)]
+SRR_RUN_mouse_SE <- as.character( SRR_RUN )[coldata_TREWcons$Lib == "Single" & grepl("mouse",coldata_TREWcons$Experiment)]
+SRR_RUN_human_PE <- as.character( SRR_RUN )[coldata_TREWcons$Lib == "Paired" & grepl("human",coldata_TREWcons$Experiment)]
+SRR_RUN_mouse_PE <- as.character( SRR_RUN )[coldata_TREWcons$Lib == "Paired" & grepl("mouse",coldata_TREWcons$Experiment)]
+
+Count_SRRs <- function(SRRs,bam_dir,reference_annotation_name,paired = T,TSS = FALSE,save_title) {
+  
+  require(GenomicAlignments)
+  require(Rsamtools)
+  require(BiocParallel)
+  register(SerialParam())
+
+  reference_annotation <- readRDS(paste0(bam_dir,reference_annotation_name,".rds"))
+
+  print("Annotation file loaded.")
+  
+  bam.list = BamFileList(file = paste0(bam_dir,SRRs,".bam"),
+                     asMates=paired)
+  
+  print("Bam files checked.")
+  
+  print("Counting...")
+
+  se <- summarizeOverlaps(reference_annotation,
+                        bam.list,
+                        mode= ifelse(TSS,"IntersectionNotEmpty","Union"),
+                        inter.feature = FALSE,
+                        singleEnd =!paired,
+                        ignore.strand=TRUE,
+                        fragments = paired)
+  
+  print(paste0("Counting finished for ", save_title, "."))
+  
+  saveRDS(se,paste0(save_title,".rds"))
+}
+
+Count_SRRs(SRR_RUN_human_SE,"./","Gr_hg19_aRMbase2",F,F,"aRMbase_human_SE")
+Count_SRRs(SRR_RUN_mouse_SE,"./","Gr_mm10_aRMbase2",F,F,"aRMbase_mouse_SE")
+Count_SRRs(SRR_RUN_human_PE,"./","Gr_hg19_aRMbase2",T,F,"aRMbase_human_PE")
+Count_SRRs(SRR_RUN_mouse_PE,"./","Gr_mm10_aRMbase2",T,F,"aRMbase_mouse_PE")
+Count_SRRs(SRR_RUN_human_SE,"./","Gr_hg19_tssA",F,T,"tssA_human_SE")
+Count_SRRs(SRR_RUN_mouse_SE,"./","Gr_mm10_tssA",F,T,"tssA_mouse_SE")
+Count_SRRs(SRR_RUN_human_PE,"./","Gr_hg19_tssA",T,T,"tssA_human_PE")
+Count_SRRs(SRR_RUN_mouse_PE,"./","Gr_mm10_tssA",T,T,"tssA_mouse_PE")
+```
+
+```{bash}
+(nohup Rscript Count_TREWcons.R > Count_TREWcons.out)&
+```
+
+
+```{r}
+sessionInfo()
+```
+
