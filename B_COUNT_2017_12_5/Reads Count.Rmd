@@ -72,6 +72,78 @@ Count_SRRs(SRR_RUN_mouse_PE,"./","Gr_mm10_tssA",T,T,"tssA_mouse_PE")
 (nohup Rscript Count_TREWcons.R > Count_TREWcons.out)&
 ```
 
+##Combine different counting results into 2 summarized experiment objects.
+
+```{r}
+library(dplyr)
+
+coldata_TREWcons <- read.csv("coldata_TREWcons.csv")
+
+hg19_se_lst <- c("aRMbase_human_SE",
+        "aRMbase_human_PE",
+       "tssA_human_SE",
+         "tssA_human_PE") %>% lapply(., 
+   function(x) paste0(x,".rds") %>% readRDS
+  ) 
+
+names(hg19_se_lst) = c("aRMbase_human_SE",
+                      "aRMbase_human_PE",
+                       "tssA_human_SE",
+                     "tssA_human_PE")
+
+mm10_se_lst <- c("aRMbase_mouse_SE",
+        "aRMbase_mouse_PE",
+       "tssA_mouse_SE",
+         "tssA_mouse_PE") %>% lapply(., 
+   function(x) paste0(x,".rds") %>% readRDS
+  )
+
+names(mm10_se_lst) = c("aRMbase_mouse_SE",
+                      "aRMbase_mouse_PE",
+                        "tssA_mouse_SE",
+                      "tssA_mouse_PE")
+
+coltable_human_SE <- coldata_TREWcons[coldata_TREWcons$Lib == "Single" & grepl("human",coldata_TREWcons$Experiment),]
+coltable_mouse_SE <- coldata_TREWcons[coldata_TREWcons$Lib == "Single" & grepl("mouse",coldata_TREWcons$Experiment),]
+coltable_human_PE <- coldata_TREWcons[coldata_TREWcons$Lib == "Paired" & grepl("human",coldata_TREWcons$Experiment),]
+coltable_mouse_PE <- coldata_TREWcons[coldata_TREWcons$Lib == "Paired" & grepl("mouse",coldata_TREWcons$Experiment),]
+
+se_hg19_tssA <- cbind(hg19_se_lst[["tssA_human_SE"]],hg19_se_lst[["tssA_human_PE"]])
+
+se_hg19_tssA_gr <- rowRanges( se_hg19_tssA )
+
+mcols(se_hg19_tssA_gr) = NULL
+
+se_hg19_tssA_gr$ID = mcols(se_hg19_tssA)$ID
+
+rowRanges(se_hg19_tssA) = se_hg19_tssA_gr
+
+se_hg19 <- rbind( 
+    cbind(hg19_se_lst[["aRMbase_human_SE"]],hg19_se_lst[["aRMbase_human_PE"]]),
+    se_hg19_tssA
+)
+
+
+se_mm10_tssA <- cbind(mm10_se_lst[["tssA_mouse_SE"]],mm10_se_lst[["tssA_mouse_PE"]])
+
+se_mm10_tssA_gr <- rowRanges( se_mm10_tssA )
+
+mcols(se_mm10_tssA_gr) = NULL
+
+se_mm10_tssA_gr$ID = mcols(se_mm10_tssA)$ID
+
+rowRanges(se_mm10_tssA) = se_mm10_tssA_gr
+
+se_mm10 <- rbind( 
+    cbind(mm10_se_lst[["aRMbase_mouse_SE"]],mm10_se_lst[["aRMbase_mouse_PE"]]),
+    se_mm10_tssA
+)
+
+saveRDS(se_mm10,"se_mm10.rds")
+saveRDS(se_hg19,"se_hg19.rds")
+```
+
+- The final count outputs are stored in 2 summarized experiments object.
 
 ```{r}
 sessionInfo()
