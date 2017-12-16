@@ -1,0 +1,74 @@
+,X,SRR_RUN,IP_input,Experiment,Perturbation,Interest,Lib,SRA_Study,Publication,Perturbation_detail
+1,24,SRR3066062,input,human-AML,FTO+,FTO,Single,SRP067910 ,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,FTO Forced Expression
+2,25,SRR3066063,IP,human-AML,FTO+,FTO,Single,SRP067910 ,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,FTO Forced Expression
+3,26,SRR3066064,input,human-AML,FTO+,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,FTO Forced Expression
+4,27,SRR3066065,IP,human-AML,FTO+,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,FTO Forced Expression
+5,28,SRR3066066,input,human-AML,C,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,Without FTO Forced Expression
+6,29,SRR3066067,IP,human-AML,C,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,Without FTO Forced Expression
+7,30,SRR3066068,input,human-AML,C,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,Without FTO Forced Expression
+8,31,SRR3066069,IP,human-AML,C,FTO,Single,SRP067910,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,Without FTO Forced Expression
+9,3,SRR3973189,IP,human-AML,C,FTO,Single,SRP080113,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,sh RNA NS
+10,4,SRR3973190,IP,human-AML,FTO-,FTO,Single,SRP080113,FTO Plays an Oncogenic Role in Acute Myeloid Leukemia as a N6-Methyladenosine RNA Demethylase,sh RNA FTO
+11,32,SRR5248992,input,human-PBT003,C,"METTL3,METTL14",Single,SRP099397,-,control shRNA
+12,33,SRR5248993,input,human-PBT003,METTL3-,METTL3,Single,SRP099397,-,METTL3 shRNA
+13,34,SRR5248994,input,human-PBT003,METTL14-,METTL14,Single,SRP099397,-,METTL14 shRNA1
+14,35,SRR5248995,input,human-PBT003,METTL14-,METTL14,Single,SRP099397,-,METTL14 shRNA2
+15,36,SRR5248996,IP,human-PBT003,C,"METTL3,METTL14",Single,SRP099397,-,control shRNA
+16,37,SRR5248997,IP,human-PBT003,METTL3-,METTL3,Single,SRP099397,-,METTL3 shRNA
+17,38,SRR5248998,IP,human-PBT003,METTL14-,METTL14,Single,SRP099397,-,METTL14 shRNA1
+18,39,SRR5248999,IP,human-PBT003,METTL14-,METTL14,Single,SRP099397,-,METTL14 shRNA2
+19,52,SRR847358_2T,input,human-Hela,C,"WTAP,METTL14",Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+20,53,SRR847359_2T,input,human-Hela,C,"WTAP,METTL14",Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+21,54,SRR847360_2T,IP,human-Hela,C,"WTAP,METTL14",Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+22,55,SRR847361_2T,IP,human-Hela,C,"WTAP,METTL14",Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+23,44,SRR847362,input,human-Hela,METTL14-,METTL14,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+24,45,SRR847363,input,human-Hela,METTL14-,METTL14,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+25,46,SRR847364,IP,human-Hela,METTL14-,METTL14,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+26,47,SRR847365,IP,human-Hela,METTL14-,METTL14,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+27,48,SRR847366_2T,input,human-Hela,WTAP-,WTAP,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+28,49,SRR847367_2T,input,human-Hela,WTAP-,WTAP,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+29,50,SRR847368_2T,IP,human-Hela,WTAP-,WTAP,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+30,51,SRR847369_2T,IP,human-Hela,WTAP-,WTAP,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 1
+31,56,SRR847370_2T,input,human-Hela,C,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+32,57,SRR847371_2T,input,human-Hela,C,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+33,58,SRR847372_2T,IP,human-Hela,C,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+34,59,SRR847373_2T,IP,human-Hela,C,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+35,40,SRR847374_2T,input,human-Hela,METTL3-,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+36,41,SRR847375_2T,input,human-Hela,METTL3-,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+37,42,SRR847376_2T,IP,human-Hela,METTL3-,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+38,43,SRR847377_2T,IP,human-Hela,METTL3-,METTL3,Single,SRP022152,A METTL3-METTL14 complex mediates mammalian nuclear RNA N6-adenosine methylation.,batch 2
+39,117,SRR1182591,IP,human-Hek293T,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si WTAP
+40,118,SRR1182592,input,human-Hek293T,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si WTAP
+41,100,SRR1182593,IP,human-Hek293T,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3
+42,101,SRR1182594,input,human-Hek293T,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3
+43,125,SRR1182595,IP,human-Hek293T,C,"WTAP,METTL3",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si Control
+44,126,SRR1182596,input,human-Hek293T,C,"WTAP,METTL3",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si Control
+45,119,SRR1182603,IP,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP
+46,120,SRR1182604,input,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP
+47,121,SRR1182605,IP,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP
+48,122,SRR1182606,input,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh WTAP
+49,108,SRR1182607,IP,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 1
+50,109,SRR1182608,input,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 1
+51,110,SRR1182609,IP,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 3
+52,111,SRR1182610,input,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 3
+53,112,SRR1182611,IP,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 1
+54,113,SRR1182612,input,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 1
+55,114,SRR1182613,IP,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 3
+56,115,SRR1182614,input,human-A549,METTL14-,METTL14,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL14 3
+57,102,SRR1182615,IP,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3
+58,103,SRR1182616,input,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3
+59,104,SRR1182617,IP,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3
+60,105,SRR1182618,input,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh METTL3
+61,127,SRR1182619,IP,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 2
+62,128,SRR1182620,input,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 2
+63,129,SRR1182621,IP,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 1
+64,130,SRR1182622,input,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 1
+65,131,SRR1182623,IP,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 1
+66,132,SRR1182624,input,human-A549,C,"WTAP,METTL3,METTL14,KIAA1429",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,sh GFP 1
+67,123,SRR1182625,IP,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si WTAP
+68,124,SRR1182626,input,human-A549,WTAP-,WTAP,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si WTAP
+69,1,SRR1182627,IP,human-A549,KIAA1429-,KIAA1429,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si KIAA1429
+70,2,SRR1182628,input,human-A549,KIAA1429-,KIAA1429,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si KIAA1429
+71,106,SRR1182629,IP,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3
+72,107,SRR1182630,input,human-A549,METTL3-,METTL3,Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3
+73,116,SRR1182631,IP,human-A549,METTL3&METTL14-,"METTL3,METTL14",Paired,SRP039397,Perturbation of m6A writers reveals two distinct classes of mRNA methylation at internal and 5' sites.,si METTL3 and si METTL14

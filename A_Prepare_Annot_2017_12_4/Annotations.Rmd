@@ -55,6 +55,7 @@ length(amp_RMbase2_mm10) #492754
 ```
 
 ###TSS m6Am extraction
+
 ```{r,eval=FALSE}
 library(GenomicFeatures)
 
@@ -156,7 +157,7 @@ Mapping_rule_1to2 <- data.frame(
 
 duplicated_gr2ID <- Mapping_rule_1to2$gr2_ID[duplicated(Mapping_rule_1to2$gr2_ID)] 
 
-Mapping_rule_1to2[!Mapping_rule_1to2$gr2_ID %in% duplicated_gr2ID ,]
+Mapping_rule_1to2[!Mapping_rule_1to2$gr2_ID %in% duplicated_gr2ID,]
 }
 
 Map_RMbase2 <- unique_Mapping_rule(amp_RMbase2_mm10,amp_RMbase2_hg19,chain)

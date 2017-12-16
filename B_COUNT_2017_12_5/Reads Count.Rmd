@@ -139,11 +139,42 @@ se_mm10 <- rbind(
     se_mm10_tssA
 )
 
+colData(se_hg19) = DataFrame(  rbind(coltable_human_SE,coltable_human_PE) )
+colData(se_mm10) = DataFrame(  rbind(coltable_mouse_SE,coltable_mouse_PE) )
+  
 saveRDS(se_mm10,"se_mm10.rds")
 saveRDS(se_hg19,"se_hg19.rds")
 ```
 
-- The final count outputs are stored in 2 summarized experiments object.
+```{bash}
+scp zhen@10.7.6.53:/home/zhen/TREW_cons_bams/se_??1?.rds /Users/zhenwei/Datasets/TREW_cons_count
+```
+
+###Transformation of mutual se.
+
+- removing header of assays of SE
+```{r}
+se_hg19 <- readRDS("/Users/zhenwei/Datasets/TREW_cons_count/se_hg19.rds")
+colData(se_hg19) = colData(se_hg19)[,-1]
+
+
+se_mm10 <- readRDS("/Users/zhenwei/Datasets/TREW_cons_count/se_mm10.rds")
+colData(se_mm10) = colData(se_mm10)[,-1]
+
+#Verify the coldata mm10
+Design_mm10 <- colData(se_mm10)
+Design_mm10$IP_depth_PM = colSums(assay( se_mm10) )/1e6
+summary( lm(IP_depth_PM ~ IP_input + SRA_Study, data = Design_mm10 ) )
+
+#Verify the coldata hg19
+Design_hg19 <- colData(se_hg19)
+Design_hg19$IP_depth_PM = colSums(assay( se_hg19) )/1e6
+summary( lm(IP_depth_PM ~ IP_input + SRA_Study, data = Design_hg19 ) )
+
+#We could think that the labels are not radically wrong, we will further check by QC package.
+```
+
+- The final count outputs are stored in the 2 summarized experiments object.
 
 ```{r}
 sessionInfo()

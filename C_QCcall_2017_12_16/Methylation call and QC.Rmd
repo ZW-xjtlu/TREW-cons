@@ -1,0 +1,202 @@
+---
+title: "Quality control for Methylation and differential methylation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Quality control and call methylation and differential methylation sites 
+
+- Based on summarized experiment count matrix of RMBase2.
+
+- The design of methylation and differential methylation is encoded by a dummy variable matrix with the same rows of the original matrix.
+
+- Each collumn of the dummy variable matrix indicate the design used for inferring one methylation or differential methylation batch.
+
+- The collumn names are uniquely indicating the IDs of the compare/design, the IDs will be finally used in the downstream analysis.
+
+Load in the summarized experiment and design dummy matrix.
+
+```{r}
+se_mm10 <- readRDS("/Users/zhenwei/Documents/GitHub/TREW-cons/B_COUNT_2017_12_5/se_mm10.rds")
+se_hg19 <- readRDS("/Users/zhenwei/Documents/GitHub/TREW-cons/B_COUNT_2017_12_5/se_hg19.rds")
+
+write.csv( colData(se_mm10) , "colData_mm10.csv" )
+write.csv( colData(se_hg19) , "colData_hg19.csv" )
+
+coldata_mm10 <- read.csv("/Users/zhenwei/Documents/GitHub/TREW-cons/C_QCcall_2017_12_16/colData_mm10_batched.csv")
+coldata_hg19 <- read.csv("/Users/zhenwei/Documents/GitHub/TREW-cons/C_QCcall_2017_12_16/colData_hg19_batched.csv")
+
+Call_Meth_design <- function(coldata_x){
+coldata_by_Exp <- split(coldata_x,coldata_x$Experiment)
+Design_df <- data.frame(idx = 1:nrow(coldata_x))
+
+for(i in names(coldata_by_Exp)) {
+  Idx_ALL = coldata_x$Experiment == i
+  Design_df[[paste0("meth_",i,"_all")]] = Idx_ALL
+  Purt_J <- unique( coldata_by_Exp[[i]]$Perturbation )
+  for(j in Purt_J) {
+  Idx_J = Idx_ALL&coldata_x$Perturbation == j
+  Design_df[[paste0("meth_",i,"_",j)]] = Idx_J
+  }
+}
+
+Design_df = Design_df[,-1]
+
+Check_vector  <- apply(Design_df,2,function(x) {
+  any(!c("IP","input") %in% coldata_x[x,"IP_input"])
+})
+if(any(Check_vector)) {warning(paste0("Warning: Design(s): ", paste( names(Check_vector)[Check_vector] ,collapse = ", ")," have no complete IP and input labels.") )}
+
+return(Design_df)
+}
+
+Meth_design_hg19 <- Call_Meth_design(coldata_hg19)
+Meth_design_mm10 <- Call_Meth_design(coldata_mm10)
+#The warning information should be solved by edditing (deleting or duplicating) the collumns of the count matrix, because they are not technically valid for the inference of the Methylation / Differential methylation.
+# I will first remove those collumns, and infer those with a new summarized experiment individually.
+
+Meth_design_hg19 <- Meth_design_hg19[, !colnames(Meth_design_hg19) %in% c("meth_human-A549_METTL3&METTL14-","meth_human-AML_FTO-")]
+
+Meth_design_mm10 <- Meth_design_mm10[, !colnames(Meth_design_mm10) %in% c("meth_mouse-MEF-N_ALKBH5-","meth_mouse-MEF-S_ALKBH5-")]
+
+
+#Call an overall methylation QC on the entire cell line.
+ 
+Call_DM_design <- function(coldata_x) {
+coldata_by_Exp <- split(coldata_x,coldata_x$Experiment)
+Design_df <- data.frame(idx = 1:nrow(coldata_x))
+
+for(i in names(coldata_by_Exp)) {
+  Idx_I = coldata_x$Experiment == i
+  Purt_J <- unique( coldata_by_Exp[[i]]$Perturbation )
+  Purt_J <- Purt_J[Purt_J != "C"]
+  for(j in Purt_J) {
+  Idx_J = Idx_I&(coldata_x$Perturbation == j|coldata_x$Perturbation == "C")
+  Design_df[[paste0("DM_",i,"_", gsub(":","_",j))]] = Idx_J
+  }
+}
+
+Design_df = Design_df[,-1]
+
+Check_vector  <- apply(Design_df,2,function(x) {
+ any(c(any(!c("IP","input") %in% coldata_x[x & coldata_x$Perturbation != "C","IP_input"]), 
+        any(!c("IP","input") %in% coldata_x[x & coldata_x$Perturbation == "C","IP_input"])))
+})
+
+if(any(Check_vector)) {warning(paste0("Warning: Design(s): ", paste( names(Check_vector)[Check_vector] ,collapse = ", ")," have no complete IP and input labels for at least one of the treated or control conditions.") )}
+
+return(Design_df)
+}
+
+DM_design_hg19 <- Call_DM_design(coldata_hg19)
+DM_design_mm10 <- Call_DM_design(coldata_mm10)
+
+DM_design_hg19 <- DM_design_hg19[, !colnames(DM_design_hg19) %in% c("DM_human-A549_METTL3&METTL14-","DM_human-AML_FTO-")]
+DM_design_mm10 <- DM_design_mm10[, !colnames(DM_design_mm10) %in% c("DM_mouse-MEF-N_ALKBH5-","DM_mouse-MEF-S_ALKBH5-")]
+
+write.csv(DM_design_hg19,"DM_design_hg19.csv")
+write.csv(DM_design_mm10,"DM_design_mm10.csv")
+write.csv(Meth_design_hg19,"Meth_design_hg19.csv")
+write.csv(Meth_design_mm10,"Meth_design_mm10.csv")
+```
+
+## Extracting Gene level exonic GC contents.
+```{r,eval=FALSE}
+Retriev_gene_GC_content <- function(txdb,bsgnm){
+require(GenomicFeatures)
+require(BSgenome)
+exbg <- exonsBy(txdb,by = "gene")
+gene_ex_seq <- DNAStringSet( Views(bsgnm,unlist(exbg)) )
+GC_cont <- letterFrequency(gene_ex_seq, letters="CG", as.prob = F)
+Total_cont <- width(gene_ex_seq)
+GC_content_pergene <- tapply(GC_cont,names(gene_ex_seq),sum)/tapply(Total_cont,names(gene_ex_seq),sum)
+mcols(exbg) = GC_content_pergene
+return(exbg)
+}
+
+Gene_GC_mm10 <- Retriev_gene_GC_content(TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene,
+                                        BSgenome.Mmusculus.UCSC.mm10::Mmusculus)
+Gene_GC_hg19 <- Retriev_gene_GC_content(TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene,
+                                        BSgenome.Hsapiens.UCSC.hg19::Hsapiens)
+
+
+saveRDS(Gene_GC_hg19,"/Users/zhenwei/Datasets/GC_content_Genes/Gene_GC_hg19.rds")
+saveRDS(Gene_GC_mm10,"/Users/zhenwei/Datasets/GC_content_Genes/Gene_GC_mm10.rds")
+
+saveDb(TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene, "/Users/zhenwei/Datasets/mm10.txdb")
+saveDb(TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene, "/Users/zhenwei/Datasets/hg19.txdb")
+```
+
+##Run QC and methylation call with meripQC package
+
+```{r}
+library(meripQC)
+setwd("/Users/zhenwei/Datasets/Sano_Pack")
+hg19_txdb <- AnnotationDbi::loadDb("hg19.txdb")
+Meth_design_hg19 <- read.csv("Meth_design_hg19.csv")[,-1]
+se_hg19 <- readRDS("se_hg19.rds")
+Gtcoord_hg19 <- readRDS("gtcoord_hg19.rds")
+Gene_GC_hg19 <- readRDS("Gene_GC_hg19.rds")
+fol <- findOverlaps( rowRanges( se_hg19 ), Gene_GC_hg19 )
+GC_cont_hg19 = rep(NA,nrow(se_hg19))
+GC_cont_hg19[queryHits(fol)] = mcols(Gene_GC_hg19)[subjectHits(fol),]
+
+
+for(i in colnames(Meth_design_hg19)) {
+dir.create(paste0("./",i))
+setwd(paste0("./",i))
+
+meRIP_mod_QC_report(se_M = se_hg19[,Meth_design_hg19[,i]],
+                             txdb = hg19_txdb,
+                             gtcoord = Gtcoord_hg19,
+                             min_num_Mod = 5000,
+                             save_title = i,
+                             DM_analysis = F,
+                             Expected_change = NULL,
+                             DeSeq2_fdr_threshold = .05,
+                             PCA_PLOT = T,
+                             GC_idx_feature = GC_cont_hg19)
+
+setwd("..")
+}
+
+#DM of human
+
+library(meripQC)
+setwd("/Users/zhenwei/Datasets/Sano_Pack")
+hg19_txdb <- AnnotationDbi::loadDb("hg19.txdb")
+DM_design_hg19 <- read.csv("DM_design_hg19.csv")[,-1]
+se_hg19 <- readRDS("se_hg19.rds")
+Gtcoord_hg19 <- readRDS("gtcoord_hg19.rds")
+Gene_GC_hg19 <- readRDS("Gene_GC_hg19.rds")
+fol <- findOverlaps( rowRanges( se_hg19 ), Gene_GC_hg19 )
+GC_cont_hg19 = rep(NA,nrow(se_hg19))
+GC_cont_hg19[queryHits(fol)] = mcols(Gene_GC_hg19)[subjectHits(fol),]
+
+
+for(i in colnames(DM_design_hg19)) {
+dir.create(paste0("./",i))
+setwd(paste0("./",i))
+meRIP_mod_QC_report(se_M = se_hg19[,Meth_design_hg19[,i]],
+                             txdb = hg19_txdb,
+                             gtcoord = Gtcoord_hg19,
+                             min_num_Mod = 5000,
+                             save_title = i,
+                             DM_analysis = T,
+                             Expected_change = ifelse(grepl("FTO.",i),"hyper","hypo"),
+                             DeSeq2_fdr_threshold = .05,
+                             PCA_PLOT = T,
+                             GC_idx_feature = GC_cont_hg19)
+setwd("..")
+}
+```
+
+
+```{r}
+gtcoord_mm10 <- readRDS("/Users/zhenwei/Datasets/Gtcoords/Gtcoord_mm10.rds")
+gtcoord_hg19 <- readRDS("/Users/zhenwei/Datasets/Gtcoords/Gtcoord_hg19.rds")
+```
+
